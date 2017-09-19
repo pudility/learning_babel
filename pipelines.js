@@ -73,7 +73,7 @@ module.exports = function(babel) {
 
             //resets the array
             traverse = [];
-            //replaces the parent path to avoid [this](https://github.com/babel/babylon/issues/728) issue, however causes a difforent issue where the arrow functions go away.
+            //replaces the body of the last BinaryExpression
             var toReplace = path.findParent((path) => path.parent.type !== 'BinaryExpression')
             //makes sure that toReplace is defined
             if (toReplace) {

@@ -10,4 +10,5 @@ for (var i = 0; i < 10; i++) {
   }else{
     i | doubleAndSquare | half | doubleAndSquare | half | log
   }
+  '\n ----- \n' | log
 }
