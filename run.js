@@ -29,7 +29,7 @@ fs.readFile(fileName, function(err, data) {
   });
 
   // print the generated code to screen
-  console.log('output: ', out.code);
+  console.log('output:\n', out.code);
   console.log('eval: ');
   eval(out.code);
 });
