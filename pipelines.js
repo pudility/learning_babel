@@ -64,9 +64,9 @@ module.exports = function(babel) {
             }else{
               //it creates a difforent variable to replace the path with
               var newPath = t.callExpression(
-                t.identifier(traverse[0]),
-                [traverse[1]]
-              )
+                              t.identifier(traverse[0]),
+                              [traverse[1]]
+                            )
             }
 
             //resets the array

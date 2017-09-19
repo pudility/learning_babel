@@ -1,6 +1,6 @@
 var fs = require('fs');
 var babel = require('babel-core');
-var moriscript = require('./');
+var moriscript = require('./pipelines');
 
 // read the filename from the command line arguments
 var fileName = process.argv[2];
