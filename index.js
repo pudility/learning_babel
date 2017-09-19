@@ -45,7 +45,7 @@ module.exports = function(babel) {
             //it adds the left value to the array
             traverse.push(pn.left)
 
-            //if the array is more than 3 elements long...
+            //if the array is more than 2 elements long...
             if (traverse[2]) {
               //it creates one set of variables
               var other = t.callExpression(
