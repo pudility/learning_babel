@@ -31,9 +31,11 @@ module.exports = function(babel) {
 
   return {
     visitor: {
+      ArrowFunctionExpression: function(path){
+        console.log(JSON.stringify(path.node, null, 4), '\n\n\n\n');
+      },
       //looks for bianary expressions
       BinaryExpression: function(path){
-        //console.log(JSON.stringify(path.node, null, 4));
         var pn = path.node;
 
         //makes sure that it is the correct operator.
@@ -71,13 +73,12 @@ module.exports = function(babel) {
 
             //resets the array
             traverse = [];
-
             //replaces the parent path to avoid [this](https://github.com/babel/babylon/issues/728) issue, however causes a difforent issue where the arrow functions go away.
-            var toRepace = path.findParent((path) => !path.isBinaryExpression())
-            //makes sure that toRepace is defined
-            if (toRepace) {
+            var toReplace = path.findParent((path) => !path.parent().isBinaryExpression())
+            //makes sure that toReplace is defined
+            if (toReplace) {
               //replaces it
-              toRepace.replaceWith(newPath);
+              toReplace.replaceWith(newPath);
             }
           }
         }

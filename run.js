@@ -1,9 +1,20 @@
 var fs = require('fs');
 var babel = require('babel-core');
-var moriscript = require('./pipelines');
 
 // read the filename from the command line arguments
 var fileName = process.argv[2];
+
+switch (process.argv[3]) {
+  case 'logic':
+    var script = require('./logic');
+    break;
+  case 'pipeline':
+    var script = require('./pipelines')
+  default:
+    var script = require('./pipelines')
+    break;
+
+}
 
 // read the code from this file
 fs.readFile(fileName, function(err, data) {
@@ -14,7 +25,7 @@ fs.readFile(fileName, function(err, data) {
 
   // use our plugin to transform the source
   var out = babel.transform(src, {
-    plugins: [moriscript]
+    plugins: [script]
   });
 
   // print the generated code to screen

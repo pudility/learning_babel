@@ -1,0 +1,1 @@
+const halfAndRoot = x => x | half | root
